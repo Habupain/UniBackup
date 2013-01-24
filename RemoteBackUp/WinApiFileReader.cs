@@ -84,7 +84,11 @@ namespace RemoteBackUp
             }
             while (bytesRead > 0);
 
-            //bData.RemoveRange(bData.Count - 1 - bufferSize, bufferSize);
+
+            if (bData.Count > 0)
+                bData.RemoveRange(bData.Count - 1 - bufferSize, bufferSize);
+
+
             return bData.ToArray();
         }
 

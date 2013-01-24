@@ -28,10 +28,10 @@
 [Compression]	High
 
 [Source]
-C:\
+C:\Files
 [Source End]
 
-[Destination]	C:\Documents and Settings\Habu\My Documents\Visual Studio 2010\Projects
+[Destination]	C:\Files
 
 
 

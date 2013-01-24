@@ -107,7 +107,14 @@ namespace RemoteBackUp
                 }
                 
                 // clear the bit we archived it 
-                File.SetAttributes(filess[ii].FullName, FileAttributes.Normal);
+                try
+                {
+                    File.SetAttributes(filess[ii].FullName, FileAttributes.Normal);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("ERROR OCCURED");
+                }
             }
             wApi.Close();
             oShadow.Dispose();
@@ -161,8 +168,8 @@ namespace RemoteBackUp
 
                 if (bck.isVss)
                 {
-
-                    bites = wApi.GetFileData(sShadowPath + Path.GetFileName(fileToAdd));
+                    MessageBox.Show(sShadowPath + fileToAdd);
+                    //bites = wApi.GetFileData(sShadowPath + Path.GetFileName(fileToAdd));
                 }
                 else
                 {
@@ -178,8 +185,10 @@ namespace RemoteBackUp
 
 
                 //Compress and write the bytes to the zip file 
-                if (bites.Length > 0 && bites != null)
+                
+                if (bites != null)
                 {
+                   
                     pkgPart.GetStream().Write(bites, 0, bites.Length);
                     return true;
                 }
