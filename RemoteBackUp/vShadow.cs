@@ -126,6 +126,19 @@ namespace RemoteBackUp
             long lRet = moShadowInterface.VSSStartSnapshot(sVolumeName, ref moSnapShotSet, ref moSnapShot);
         }
 
+        public void InitShadowVolume(string sPath)
+        {
+
+            msLocalPath = sPath;
+
+            int iIndex = sPath.IndexOf("\\", 0);
+            string sVolumeName = sPath.Substring(0, iIndex + 1);
+            msLocalPath = sPath.Substring(iIndex + 1, sPath.Length - iIndex - 1);
+
+            moShadowInterface.VSSInitializeForBackup();
+            long lRet = moShadowInterface.VSSStartSnapshot(sVolumeName, ref moSnapShotSet, ref moSnapShot);
+        }
+
         public string StartSnapShot()
         {
             string sDeviceName = new string(' ', 255);

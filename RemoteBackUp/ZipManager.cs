@@ -12,7 +12,10 @@ namespace RemoteBackUp
 {
     class ZipManager
     {
-        
+        private vShadow oShadow;
+        private WinApiFileReader wApi;
+        private String sShadowPath;
+
         internal void ZipFiles(Backup bck)
         {
            
@@ -65,9 +68,16 @@ namespace RemoteBackUp
                 }
                 oldZip.Close();
             }
+
+            if (bck.isVss)
+                InitVssShadow();
+
             //Add as many files as you like
             for (int ii = 0; ii < filess.Count; ii++)
             {
+                
+
+
                 if ((bck.backupType == BackupType.Incremental||bck.backupType==BackupType.Differential))
                 {
                     // get the attibutes
@@ -83,20 +93,24 @@ namespace RemoteBackUp
                     if (isArchive)
                     {
                         // add to the archive file
-                        bck.numOfFileBackedup++;
-                        AddToArchive(zip, filess[ii].FullName,bck);
+                        if(AddToArchive(zip, filess[ii].FullName, bck))
+                             bck.numOfFileBackedup++;
+                       
                     }
                 }
                 else
                 {
                     // add to the archive file
-                    bck.numOfFileBackedup++;
-                    AddToArchive(zip, filess[ii].FullName,bck);
+                    if(AddToArchive(zip, filess[ii].FullName, bck))
+                        bck.numOfFileBackedup++;
+                   
                 }
                 
                 // clear the bit we archived it 
                 File.SetAttributes(filess[ii].FullName, FileAttributes.Normal);
             }
+            wApi.Close();
+            oShadow.Dispose();
            zip.Close();
         }
 
@@ -114,8 +128,15 @@ namespace RemoteBackUp
             }
         }
 
+        private void InitVssShadow()
+        {
+            oShadow = new vShadow("c:\\");
+            sShadowPath = oShadow.StartSnapShot();
+            wApi = new WinApiFileReader();
+            
+        }
        
-        private void AddToArchive(Package zip, string fileToAdd,Backup bck)
+        private bool AddToArchive(Package zip, string fileToAdd,Backup bck)
         {
             // Replace spaces with an underscore (_) 
             string uriFileName = fileToAdd.Replace(" ", "_");
@@ -136,24 +157,38 @@ namespace RemoteBackUp
                 PackagePart pkgPart = zip.CreatePart(partUri, contentType, ConvertCompIntoCompressOption(bck.compressLevel));
 
                 // Read all of the bytes from the file to add to the zip file 
-                Byte[] bites=null;
-                //try
-                //{
-                //    bites = File.ReadAllBytes(fileToAdd);
-                //}
-                //catch (Exception e)
-                //{
-                //    if (bck.isVss)
-                //    {
-                MessageBox.Show(Path.GetPathRoot(fileToAdd));
-                        bites = GetDataFromVSS(fileToAdd);
-                //    }
+                Byte[] bites = null;
 
-                //}
-                // Compress and write the bytes to the zip file 
-                //if(bites.Length>0&&bites!=null)
-                pkgPart.GetStream().Write(bites, 0, bites.Length);
+                if (bck.isVss)
+                {
+
+                    bites = wApi.GetFileData(sShadowPath + Path.GetFileName(fileToAdd));
+                }
+                else
+                {
+                    try
+                    {
+                        bites = File.ReadAllBytes(fileToAdd);
+                    }
+                    catch (Exception e)
+                    {
+                        bites = null;
+                    }
+                }
+
+
+                //Compress and write the bytes to the zip file 
+                if (bites.Length > 0 && bites != null)
+                {
+                    pkgPart.GetStream().Write(bites, 0, bites.Length);
+                    return true;
+                }
+                else
+                    return false;
+
             }
+            else
+                return false;
         }
 
 
@@ -169,26 +204,12 @@ namespace RemoteBackUp
             return compress;
         }
 
-        public static Byte[] GetDataFromVSS(String fileName)
-        {
-
-            vShadow oShadow = new vShadow("c:\\");
-
-
-            string sShadowPath = oShadow.StartSnapShot();
-
-            WinApiFileReader wApi = new WinApiFileReader();
-
-
-            Byte[] data = wApi.GetFileData(sShadowPath + fileName);
+       
+           
         
-            wApi.Close();
-
-
-
-            oShadow.Dispose();
-            return data;
-        }
+            
+            
+        
        
     }
 }

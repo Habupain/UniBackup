@@ -23,12 +23,12 @@
 [Incremental]	
 [Differential] Sun-Sat
 
-[Sub Folder] 	True
+[Sub Folder] 	False
 [Free Space] 	1%
 [Compression]	High
 
 [Source]
-C:\Documents and Settings\Habu\My Documents\driver
+C:\
 [Source End]
 
 [Destination]	C:\Documents and Settings\Habu\My Documents\Visual Studio 2010\Projects

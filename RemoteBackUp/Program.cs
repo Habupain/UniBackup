@@ -11,25 +11,25 @@ namespace RemoteBackUp
     {
         static void Main(string[] args)
         {
-            BackUpManager.DoBackUp();
+            //BackUpManager.DoBackUp();
             //new DriveImageXML();
-            //vShadow oShadow = new vShadow("c:\\");
+            vShadow oShadow = new vShadow("c:\\");
 
 
-            //string sShadowPath = oShadow.StartSnapShot();
+            string sShadowPath = oShadow.StartSnapShot();
 
-            //WinApiFileReader wApi = new WinApiFileReader();
-
-
-            //Byte[] data = wApi.GetFileData(sShadowPath + "Gothic vamp.png");
-            //File.WriteAllBytes(@"you.png",data);
+            WinApiFileReader wApi = new WinApiFileReader();
 
 
-            //wApi.Close();
+            Byte[] data = wApi.GetFileData(sShadowPath + "Gothic vamp.png");
+            File.WriteAllBytes(@"you.png", data);
+
+
+            wApi.Close();
 
 
 
-            //oShadow.Dispose();
+            oShadow.Dispose();
             Console.ReadLine();
         }
     }
