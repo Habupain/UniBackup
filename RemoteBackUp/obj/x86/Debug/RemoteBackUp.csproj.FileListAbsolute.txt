@@ -4,3 +4,6 @@ C:\Documents and Settings\Habu\my documents\visual studio 2010\Projects\RemoteBa
 C:\Documents and Settings\Habu\my documents\visual studio 2010\Projects\RemoteBackUp\RemoteBackUp\obj\x86\Debug\RemoteBackUp.exe
 C:\Documents and Settings\Habu\my documents\visual studio 2010\Projects\RemoteBackUp\RemoteBackUp\obj\x86\Debug\RemoteBackUp.pdb
 C:\Documents and Settings\Habu\My Documents\Visual Studio 2010\Projects\RemoteBackUp\RemoteBackUp\bin\Debug\RemoteBackUp.exe.config
+C:\Documents and Settings\Habu\My Documents\GitHub\UniBackup\RemoteBackUp\bin\Debug\RemoteBackUp.exe.config
+C:\Documents and Settings\Habu\My Documents\GitHub\UniBackup\RemoteBackUp\obj\x86\Debug\RemoteBackUp.exe
+C:\Documents and Settings\Habu\My Documents\GitHub\UniBackup\RemoteBackUp\obj\x86\Debug\RemoteBackUp.pdb
