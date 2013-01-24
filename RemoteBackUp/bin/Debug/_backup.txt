@@ -1,0 +1,68 @@
+[Status] 	True
+[OwnerName] 		Ken Lee
+[Company] 	Hire a Geek, Inc.
+
+
+[SMTP]		
+[E-Mail]	
+[Username]	
+[Password]	
+[Port]		
+
+
+[Backup] 	1
+[BackupStatus] 	True
+[Report]	True
+
+[Backup Type]	Zip
+[BackupName] 		Main Backup
+[Use Password] 	@123
+[Use VSS] 	True
+[Sets to Keep] 	10
+
+
+[Full] 		Mon-Sat
+[Incremental]	Sun
+[Differential] 	
+
+[Sub Folder] 	True
+[Free Space] 	15%
+[Compression]	High
+
+[Source]
+		D:\\Files
+		C:\\Users\\ken
+		C:\\Video Folder
+[Source End]
+
+[Destination]	C:\\Files
+
+
+
+[Backup] 	2
+[BackupStatus] 	True
+[Report]	True
+
+[Backup Type]	Zip
+[BackupName] 	Backup THE BEST
+[Use Password] 	what123
+[Use VSS] 	false
+[Sets to Keep] 	5
+
+
+[Full] 		Sun
+[Incremental]	Mon-Sat
+[Differential] 	
+
+[Sub Folder] 	False
+[Free Space] 	25%
+[Compression]	Fast
+
+[Source]
+		C:\\Files
+		
+		
+[Source End]
+
+[Destination]	D:\\Files
+

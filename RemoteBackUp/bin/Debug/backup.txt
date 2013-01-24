@@ -1,0 +1,156 @@
+[Status] 	True
+[OwnerName] 		Ken Lee
+[Company] 	Hire a Geek, Inc.
+
+
+[SMTP]		
+[E-Mail]	
+[Username]	
+[Password]	
+[Port]		
+
+
+[Backup] 	1
+[BackupStatus] 	True
+[Report]	True
+[Backup Type]	Zip
+[BackupName] 		Main Backup
+[Use Password] 	@123
+[Use VSS] 	True
+[Sets to Keep] 	7
+
+[Full] 		
+[Incremental]	
+[Differential] Sun-Sat
+
+[Sub Folder] 	True
+[Free Space] 	1%
+[Compression]	High
+
+[Source]
+C:\Documents and Settings\Habu\My Documents\driver
+[Source End]
+
+[Destination]	C:\Documents and Settings\Habu\My Documents\Visual Studio 2010\Projects
+
+
+
+
+
+[Backup] 	2
+[BackupStatus] 	False
+[Report]	True
+
+[Backup Type]	NTBackup
+[BackupName] 		Mail Backup
+[Use Password] 	@123
+[Use VSS] 	True
+[Sets to Keep] 	10
+
+[Full] 		Sun-Sat
+[Incremental]
+[Differential] 	
+
+[Sub Folder] 	True
+[Free Space] 	15%
+[Compression]	High
+
+[Source]
+		C:\\
+[Source End]
+
+[Destination]	E:\\Backup\\
+
+
+
+
+
+[Backup] 	3
+[BackupStatus] 	False
+[Report]	True
+
+[Backup Type]	Wbadmin
+[BackupName] 		Mail Backup
+[Use Password] 	@123
+[Use VSS] 	True
+[Sets to Keep] 	10
+
+[Full] 		Sun
+[Incremental]
+[Differential] 	Mon-Sat
+
+[Sub Folder] 	True
+[Free Space] 	15%
+[Compression]	High
+
+[Source]
+		C:\\Outlook
+[Source End]
+
+
+[Destination]	E:\\Backup\\
+
+
+
+
+
+[Backup] 	4
+[BackupStatus] 	False
+[Report]	True
+
+[Backup Type]	Reflect
+[BackupName]	Mail Backup
+[Sets to Keep]  0
+[Use Password]  
+
+[Execute XML]	True
+[Wait]		False
+[Free Space]    10%
+	
+[Full] 		Sun
+[Incremental]	
+[Differential] 	Mon-Sat
+
+[Auto Veify]	Y
+[Sub Folder] 	True
+[Compression]	High
+[Use VSS]	None
+
+[Source]
+[Source End]
+[Destination]  
+
+
+[XML File]	backup.xml
+
+
+
+
+
+[Backup] 	5
+[BackupStatus] 	False
+[Report]	True
+
+[Backup Type]	DriveImageXML
+[BackupName]	DriveImageXML C: Backup
+[Use Password]
+
+[Sets to Keep] 	2
+[When] 		Sun
+[Free Space]	10%
+
+[Full] 		Sun
+[Incremental]	Mon-Wed
+[Differential] 	Thu-Sat
+
+[Raw]		True
+[Split]		False
+[Compression]	Fast 
+[Use VSS]	True
+[Sub Folder]	False
+
+[Source]
+		C:\\
+[Source End]
+
+[Destination]	E:\\Image\\

@@ -1,0 +1,6 @@
+C:\Documents and Settings\Habu\my documents\visual studio 2010\Projects\RemoteBackUp\RemoteBackUp\bin\Debug\RemoteBackUp.exe
+C:\Documents and Settings\Habu\my documents\visual studio 2010\Projects\RemoteBackUp\RemoteBackUp\bin\Debug\RemoteBackUp.pdb
+C:\Documents and Settings\Habu\my documents\visual studio 2010\Projects\RemoteBackUp\RemoteBackUp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Habu\my documents\visual studio 2010\Projects\RemoteBackUp\RemoteBackUp\obj\x86\Debug\RemoteBackUp.exe
+C:\Documents and Settings\Habu\my documents\visual studio 2010\Projects\RemoteBackUp\RemoteBackUp\obj\x86\Debug\RemoteBackUp.pdb
+C:\Documents and Settings\Habu\My Documents\Visual Studio 2010\Projects\RemoteBackUp\RemoteBackUp\bin\Debug\RemoteBackUp.exe.config
